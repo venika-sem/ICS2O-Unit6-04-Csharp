@@ -9,25 +9,24 @@
  * Check servie worker.
  */
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-Unit6-04-HTML/sw.js", {
-    scope: "/ICS2O-Unit6-04-HTML/",
+  navigator.serviceWorker.register("/ICS2O-Unit6-04-Csharp/sw.js", {
+    scope: "/ICS2O-Unit6-04-Csharp/",
   })
 }
 
 window.onload = function() {
-  // this calculates volume of a sphere
+  // this calculates area of a square
 
   const params = new URLSearchParams(document.location.search)
-
+  
   // input
-  const radius = params.get('r')
-  console.log(radius)
+  const side = params.get('a')
 
   // process
-  const volume = (4/3)* Math.PI * Math.pow(radius, 3)
-  const dimension = "<ul>\n<li>radius = " + radius + "</li>"
-
+  const area = side * side
+  const dimension = "<ul>\n<li>side = " + side + "</li>"
+  
   // output
   document.getElementById('dimension').innerHTML = dimension
-  document.getElementById('volume').innerHTML = 'Volume is: ' + volume + ' mm³'
+  document.getElementById('area').innerHTML = 'Area is: ' + area.toFixed(2) + ' cm²'
 }
